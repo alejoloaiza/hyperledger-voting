@@ -29,7 +29,7 @@ var tx_id = null;
 
 
 module.exports = {
-  dovote: function (voterid,vote) {
+  dovote: function (voterid,vote,callback) {
 // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
 Fabric_Client.newDefaultKeyValueStore({ path: store_path
 }).then((state_store) => {
@@ -153,6 +153,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 
 	if(results && results[1] && results[1].event_status === 'VALID') {
 		console.log('Successfully committed the change to the ledger by the peer');
+		callback("Voto aceptado por la blockchain");
 	} else {
 		console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
 	}

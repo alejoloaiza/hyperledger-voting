@@ -35,7 +35,9 @@ app.get('/votar/:id/:vote', function (req, res, next) {
   console.log('VOTE:', req.params.vote);
   next();
 }, function (req, res, next) {
-  	vote.dovote(req.params.id,req.params.vote);	
+    vote.dovote(req.params.id,req.params.vote,
+          function back(param){ res.send(param); }
+    );
 });
 
 app.listen(8080); 
