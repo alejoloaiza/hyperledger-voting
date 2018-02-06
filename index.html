@@ -46,12 +46,10 @@
                     .error(function(mdata) {
                         console.log('Error: ' + mdata);
                     });
-		
             }
 });
 	</script>
         <script type="text/javascript">
-
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
 
@@ -113,6 +111,7 @@
                 <button class="btn btn-primary btn-lg" ng-click="addVote('NO')">NO</button>
                 <button class="btn btn-primary btn-lg" ng-click="addVote('BLANCO')">BLANCO</button>
             </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <h2>Resultados Blockchain</h2>
             <div class="form-group">
                 <button class="btn btn-primary btn-lg" ng-click="inquiry()">Consultar</button>
@@ -138,6 +137,6 @@
                 </tr>
             </tbody>
 	</table>
-	<div id="chart_div"></div>
+	<center><div id="chart_div"></div></center>
     </body>
 </html>
