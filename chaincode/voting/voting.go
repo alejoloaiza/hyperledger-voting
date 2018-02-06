@@ -170,8 +170,16 @@ func (s *SmartContract) doVoting(APIstub shim.ChaincodeStubInterface, args []str
 	voterAsBytes, _ := APIstub.GetState(args[0])
 	vote := Asset_Votes{}
 
+
+	
 	json.Unmarshal(voterAsBytes, &vote)
-	vote.Vote = args[1]
+	if (vote.Vote == "SINVOTAR"){
+		fmt.Println("You havent voted before, vote accepted!")
+		vote.Vote = args[1]
+	}else{
+		return shim.Error("Already voted before!, you can only vote once")
+	}
+	
 
 	voterAsBytes, _ = json.Marshal(vote)
 	APIstub.PutState(args[0], voterAsBytes)
